@@ -1,0 +1,188 @@
+/* Estilos Globais */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #8309b6;
+  text-align: center;
+}
+
+h2 {
+  color: #4a148c;
+  margin-bottom: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* Container Geral */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container2 {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Formulários e Elementos de Entrada */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #4a148c;
+}
+
+select,
+input,
+textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+  border-color: #ff9800;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+
+/* Botões */
+button {
+  padding: 10px;
+  background-color: #4a148c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ff4500;
+}
+
+.internar-btn {
+  margin-top: 12px;
+}
+
+/* Estilos Específicos para Login */
+.login-box {
+  background-color: #ffffff;
+  padding: 60px;
+  border: 1px solid #dddddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.textbox {
+  margin-bottom: 20px;
+}
+
+.textbox input,
+.textbox select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+}
+
+.textbox select {
+  color: #777777;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #8309b6;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #c9302c;
+}
+
+/* Estilos para Abas (Tabs) */
+.tab-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 15px;
+  color: #4a148c;
+  background: #f7f7f7;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.tab-button:hover {
+  background: #e0e0e0;
+}
+
+.tab-button.active {
+  background: #fff;
+  border-bottom: 3px solid #ff4500;
+  font-weight: bold;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Estilos para Rodapé */
+footer {
+  margin-top: 20px;
+  text-align: center;
+  color: #777777;
+}
