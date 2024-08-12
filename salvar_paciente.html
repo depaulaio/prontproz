@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inserção de Dados do Paciente</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+    <link rel="icon" href="img/favcon.png" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div class="tab-container">
+      <div class="tabs">
+        <button class="tab-button" onclick="openTab(event, 'dados-pessoais')">
+          Dados Pessoais
+        </button>
+        <button
+          class="tab-button"
+          onclick="openTab(event, 'informacoes-clinicas')"
+        >
+          Informações Clínicas
+        </button>
+      </div>
+
+      <!-- Formulário combinado -->
+
+      <!--<form id="form-dados-clinico" action="salvar_paciente.php" method="POST">-->
+        <!-- Dados Pessoais -->
+        <div id="dados-pessoais" class="tab-content">
+          <h2>Dados Pessoais do Paciente</h2>
+          <div class="container">
+            <div class="container2">
+              <form id="form-dados-clinico" action="salvar_paciente.php" method="POST">
+              <input
+                type="text"
+                name="nome"
+                placeholder="Nome Completo"
+                required
+              /><br />
+              <input type="text" name="cpf" placeholder="CPF" required /><br />
+              <input
+                type="date"
+                name="datadenascimento"
+                placeholder="Data de Nascimento"
+                required
+              /><br />
+              <input
+                type="text"
+                name="sexo"
+                placeholder="Sexo"
+                required
+              /><br />
+              <input
+                type="text"
+                name="nacionalidade"
+                placeholder="Nacionalidade"
+              /><br />
+              <input type="email" name="email" placeholder="Email" /><br />
+              <input
+                type="text"
+                name="telefone"
+                placeholder="Telefone"
+                required
+              /><br />
+              <input
+                type="text"
+                name="endereco"
+                placeholder="Endereço"
+                required
+              /><br />
+              <input
+                type="text"
+                name="historico"
+                placeholder="Histórico Médico"
+              /><br />
+              <input
+                type="text"
+                name="contato-emergencia"
+                placeholder="Contato de Emergência"
+                required
+              /><br />
+              <center>
+                <button
+                  type="button"
+                  onclick="openTab(event, 'informacoes-clinicas')"
+                >
+                  Próximo
+                </button>
+              </center>
+            </div>
+          </div>
+        </div>
+
+      
+        <!-- Informações Clínicas -->
+        <div id="informacoes-clinicas" class="tab-content">
+          <h2>Informações Clínicas do Paciente</h2>
+          <input
+            type="text"
+            name="tipo-sanguineo"
+            placeholder="Tipo Sanguíneo"
+            required
+          /><br />
+          <input
+            type="text"
+            name="temperatura"
+            placeholder="Temperatura"
+            required
+          /><br />
+          <input
+            type="text"
+            name="pressao"
+            placeholder="Pressão"
+            required
+          /><br />
+          <textarea
+            name="observacoes"
+            placeholder="Observações"
+            cols="40"
+            rows="6"
+            required
+          ></textarea
+          ><br />
+          <center><button type="submit">Salvar</button></center>
+        </div>
+      </form>
+    </div>
+    <script>
+      window.onload = function () {
+        const urlParams = new URLSearchParams(window.location.search)
+        if (urlParams.has('success')) {
+          alert('Dados do paciente salvos com sucesso!')
+        }
+      }
+    </script>
+  </body>
+</html>

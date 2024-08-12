@@ -1,0 +1,310 @@
+Crie um banco de dados MySQL para uma aplicação web que conterá os 4 arquivos .html
+abaixo:
+
+index.html:
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prontuário Eletrônico</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/favcon.png" type="image/x-icon"> <!-- Adicionando o favicon -->
+  </head>
+  
+  <body>   
+    <div class="container">
+      <div class="login-box">
+        <img src="img/logo.jpg " alt="Logo Institucional" class="logo" />
+        <h1>Proz Saúde</h1>
+
+        <form action="login.php" method="POST">
+
+          <div class="textbox">
+            <select name="user_type" required>
+                <option value="" disabled selected>Selecione o tipo de usuário</option>
+                <option value="medico">Médico</option>
+                <option value="enfermeiro">Enfermeiro</option>
+            </select>
+        </div>
+        
+          <div class="textbox">
+            <input type="text" placeholder="Usuário" name="username" required />
+          </div>
+          <div class="textbox">
+            <input
+              type="password"
+              placeholder="Senha"
+              name="password"
+              required
+            />
+    </div>
+
+ 
+  <button type="submit" class="btn">Entrar</button>
+</form>
+</div>
+
+
+
+    <footer>&copy; 2024 Todos os direitos reservados.</footer>
+
+  </body>
+</html>
+
+-------------------------------------------------------------------------------------
+salvar_paciente.html:
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inserção de Dados do Paciente</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+    <link rel="icon" href="img/favcon.png" type="image/x-icon" />
+    <!-- Adicionando o favicon -->
+  </head>
+
+  <body>
+    <div class="tab-container">
+      <div class="tabs">
+        <button class="tab-button" onclick="openTab(event, 'dados-pessoais')">
+          Dados Pessoais
+        </button>
+        <button
+          class="tab-button"
+          onclick="openTab(event, 'informacoes-clinicas')"
+        >
+          Informações Clínicas
+        </button>
+      </div>
+
+      <div id="dados-pessoais" class="tab-content">
+        <h2>Dados Pessoais do Paciente</h2>
+        <div class="container">
+          <div class="container2">
+            <form id="form-dados" action="salvar_paciente.php" method="POST">
+              <input
+                type="text"
+                name="nome"
+                placeholder="Nome Completo"
+                required
+              /><br />
+              <input type="text" name="cpf" placeholder="CPF" required /><br />
+              <input
+                type="date"
+                name="datadenascimento"
+                placeholder="Data de Nascimento"
+                required
+              /><br />
+              <input
+                type="text"
+                name="sexo"
+                placeholder="Sexo"
+                required
+              /><br />
+              <input
+                type="text"
+                name="nacionalidade"
+                placeholder="Nacionalidade"
+              /><br />
+              <input type="email" name="email" placeholder="Email" /><br />
+              <input
+                type="text"
+                name="telefone"
+                placeholder="Telefone"
+                required
+              /><br />
+              <input
+                type="text"
+                name="endereco"
+                placeholder="Endereço"
+                required
+              /><br />
+              <input
+                type="text"
+                name="historico"
+                placeholder="Histórico Médico"
+              /><br />
+              <input
+                type="text"
+                name="contato-emergencia"
+                placeholder="Contato de Emergência"
+                required
+              /><br />
+
+              <center>
+                <button
+                  type="button"
+                  onclick="openTab(event, 'informacoes-clinicas')"
+                >
+                  Próximo
+                </button>
+              </center>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div id="informacoes-clinicas" class="tab-content">
+        <h2>Informações Clínicas do Paciente</h2>
+        <form id="form-clinico" action="salvar_paciente.php" method="POST">
+          <input
+            type="text"
+            name="tipo-sanguineo"
+            placeholder="Tipo Sanguíneo"
+            required
+          /><br />
+          <input
+            type="text"
+            name="temperatura"
+            placeholder="Temperatura"
+            required
+          /><br />
+          <input
+            type="text"
+            name="pressao"
+            placeholder="Pressão"
+            required
+          /><br />
+          <textarea
+            name="diagnostico"
+            placeholder="Observações"
+            cols="40"
+            rows="6"
+            required
+          ></textarea
+          ><br />
+          <center><button type="submit">Salvar</button></center>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+--------------------------------------------------------------------------------------
+atualizar_medico.html:
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta Médica</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+  <link rel="icon" href="img/favcon.png" type="image/x-icon"> <!-- Adicionando o favicon -->
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>Consulta Médica</h1>
+    <form action="atualizar_medico.php" method="POST">
+      <label for="nome">Paciente:</label>
+      <select name="nome" id="nome" required>
+        <option value="" disabled selected>Selecione um paciente</option>
+        <?php
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            echo "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
+          }
+        }
+        ?>
+      </select>
+      
+      <label for="data">Data:</label>
+      <input type="date" name="data" id="data" required>
+      
+      <label for="horario">Horário:</label>
+      <input type="time" name="horario" id="horario" required>
+      
+      <label for="sintomas">Sintomas:</label>
+      <textarea name="sintomas" id="sintomas" placeholder="Sintomas" required></textarea>
+      
+      <label for="medicamentos">Medicamentos Prescritos:</label>
+      <textarea name="medicamentos" id="medicamentos" placeholder="Medicamentos Prescritos" required></textarea>
+      
+      <label for="exames">Exames:</label>
+      <textarea name="exames" id="exames" placeholder="Exames" required></textarea>
+      
+      <label for="diagnosticos">Diagnósticos:</label>
+      <textarea name="diagnosticos" id="diagnosticos" placeholder="Diagnósticos" required></textarea>
+      
+      <label for="doenca">Doença:</label>
+      <textarea name="doenca" id="doenca" placeholder="Doença" required></textarea>
+      
+      <label for="cid">CID:</label>
+      <textarea name="cid" id="cid" placeholder="CID" required></textarea>
+      
+      <label for="notas">Notas:</label>
+      <textarea name="notas" id="notas" placeholder="Notas"></textarea>
+      <button type="submit">Atualizar</button>
+      <button type="button" class="internar-btn" onclick="internarPaciente()">Internar</button>
+    </form>
+  </div>
+</body>
+
+</html>
+--------------------------------------------------------------------------------------------------------------------------
+atualizar_paciente.html:
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolução de Prontuário e Administração de Medicamentos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/favcon.png" type="image/x-icon"> <!-- Adicionando o favicon -->
+</head>
+
+<body>
+  <div class="container">
+    <h1>Evolução de Prontuário e Administração de Medicamentos</h1>
+    <form action="atualizar_paciente.php" method="POST">
+      <label for="nome">Paciente:</label>
+      <select name="nome" id="nome" required>
+        <option value="" disabled selected>Selecione um paciente</option>
+        <?php
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            echo "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
+          }
+        }
+        ?>
+      </select>
+      
+      <label for="data">Data:</label>
+      <input type="date" name="data" id="data" required>
+      
+      <label for="horario">Horário:</label>
+      <input type="time" name="horario" id="horario" required>
+      
+      <label for="evolucao">Evolução:</label>
+      <textarea name="evolucao" id="evolucao" placeholder="Evolução" required></textarea>
+      
+      <label for="medicamentos">Medicamentos Administrados:</label>
+      <textarea name="medicamentos" id="medicamentos" placeholder="Medicamentos Administrados" required></textarea>
+      
+      <label for="notas">Notas:</label>
+      <textarea name="notas" id="notas" placeholder="Notas"></textarea>
+      
+      <button type="submit">Atualizar</button>
+    </form>
+  </div>
+</body>
+
+</html>
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+

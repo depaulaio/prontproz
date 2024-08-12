@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prontuário Eletrônico</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/favcon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-box">
+        <img src="img/logo.jpg" alt="Logo Institucional" class="logo" />
+        <h1>Proz Saúde</h1>
+        <!-- Formulário de login -->
+        <form action="login.php" method="POST">
+          <div class="textbox">
+            <select name="user_type" required>
+              <option value="" disabled selected>
+                Selecione o tipo de usuário
+              </option>
+              <option value="medico">Médico</option>
+              <option value="enfermeiro">Enfermeiro</option>
+            </select>
+          </div>
+          <div class="textbox">
+            <input type="text" placeholder="Usuário" name="username" required />
+          </div>
+          <div class="textbox">
+            <input
+              type="password"
+              placeholder="Senha"
+              name="password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn">Entrar</button>
+        </form>
+      </div>
+      <footer>&copy; 2024 Todos os direitos reservados.</footer>
+    </div>
+  </body>
+</html>
